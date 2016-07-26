@@ -268,6 +268,10 @@ func (s *TSDBStore) IteratorCreator(shards []meta.ShardInfo, opt *influxql.Selec
 	return influxql.IteratorCreators(ics), nil
 }
 
+func (s *TSDBStore) MetaIteratorCreator(opt *influxql.SelectOptions) (influxql.IteratorCreator, error) {
+	return nil, errors.New("unimplemented")
+}
+
 func (s *TSDBStore) ShardIteratorCreator(id uint64) influxql.IteratorCreator {
 	return s.ShardIteratorCreatorFn(id)
 }
